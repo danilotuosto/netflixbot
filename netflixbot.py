@@ -16,9 +16,9 @@ hwnd = win32gui.GetForegroundWindow()
 
 win32gui.ShowWindow(hwnd, win32con.SW_HIDE)
 
-email = 'nucleonetflixbot@gmail.com'
-password_app = 'czsy dygl lvox uude'
-netflix_password = 'lamiapassword'
+email = ''
+password_app = ''
+netflix_password = ''
 
 print(f'Avvio in corso... {datetime.now().ctime()}',end='\r')
 
