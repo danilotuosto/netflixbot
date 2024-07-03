@@ -1,0 +1,7 @@
+imap_tools 
+bs4 
+pytz
+selenium
+webdriver_manager
+win32gui
+win32con
