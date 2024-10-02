@@ -10,12 +10,6 @@ from selenium.webdriver.chrome.options import Options
 import time
 from webdriver_manager.chrome import ChromeDriverManager
 
-import win32gui, win32con
-
-hwnd = win32gui.GetForegroundWindow()
-
-win32gui.ShowWindow(hwnd, win32con.SW_HIDE)
-
 email = ''
 password_app = ''
 netflix_password = ''
@@ -38,7 +32,7 @@ def accept(url):
     try:
         driver.get(url)
         time.sleep(2)
-        driver.find_element(By.XPATH,'//*[@id="appMountPoint"]/div/div/div/div[2]/div/div/div/div[3]/div/div/div[2]/button').click()
+        driver.find_element(By.XPATH,'//*[@id="appMountPoint"]/div/div/div/div[2]/div/div/div/div[4]/button').click()
         pass
     except:
         pass
