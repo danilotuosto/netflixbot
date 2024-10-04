@@ -42,24 +42,28 @@ chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')  # Aggiungere questo per evitare l'errore di sandboxing su Colab
 chrome_options.add_argument('--disable-dev-shm-usage')
 driver = webdriver.Chrome(options=chrome_options)
-# go to the site
-driver.get('https://www.netflix.com/browse')
-time.sleep(5)
-# accept cookies
-driver.find_element(By.XPATH,'//*[@id="onetrust-accept-btn-handler"]').click()
-time.sleep(1)
-# login into netflix
-driver.find_element(By.XPATH, '//*[@id=":r0:"]').send_keys(email)
-time.sleep(1)
-driver.find_element(By.XPATH, '//*[@id=":r3:"]').send_keys(netflix_password)
-time.sleep(1)
-driver.find_element(By.XPATH,'//*[@id="appMountPoint"]/div/div/div[2]/div/form/button').click()
-time.sleep(1)
 
+old_url = ''
 while True:
     
     url = get_url()
-    if url:
+    if url != old_url:
+        # go to the site
+        driver.get('https://www.netflix.com/browse')
+        time.sleep(5)
+        # accept cookies
+        try:
+            driver.find_element(By.XPATH,'//*[@id="onetrust-accept-btn-handler"]').click()
+        except:
+            pass
+        time.sleep(1)
+        # login into netflix
+        driver.find_element(By.ID, ":r0:").send_keys(email)
+        time.sleep(1)
+        driver.find_element(By.ID, ':r3:').send_keys(netflix_password)
+        time.sleep(1)
+        driver.find_element(By.XPATH,'//*[@id="appMountPoint"]/div/div/div[2]/div/form/button').click()
+        time.sleep(1)
         print(f'Richiesta ricevuta... {datetime.now().ctime()}',end='\r')
         accept(url)
         print(f'Richiesta accettata. {datetime.now().ctime()}',end='\r')
@@ -67,3 +71,4 @@ while True:
     else:
         print(f'Nessuna nuova richiesta... {datetime.now().ctime()}',end='\r')
         pass
+    old_url = url
