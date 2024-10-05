@@ -1,7 +1,5 @@
-imap_tools 
-bs4 
-pytz
-selenium
-webdriver_manager
-win32gui
-win32con
+imap-tools==0.59.0
+beautifulsoup4==4.13.0
+pytz==2023.3
+selenium==4.21.0
+webdriver-manager==4.0.2
