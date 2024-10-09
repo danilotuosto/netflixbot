@@ -45,7 +45,7 @@ driver = webdriver.Chrome(options=chrome_options)
 
 old_url = ''
 while True:
-    
+    time.sleep(2)
     url = get_url()
     if url != old_url:
         # go to the site
