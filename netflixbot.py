@@ -9,10 +9,14 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 import time
 from webdriver_manager.chrome import ChromeDriverManager
+from dotenv import load_dotenv
+import os
 
-email = ''
-password_app = ''
-netflix_password = ''
+load_dotenv()
+
+email = os.getenv("EMAIL")
+password_app = os.getenv("PASS_APP")
+netflix_password = os.getenv("PWD")
 
 print(f'Avvio in corso... {datetime.now().ctime()}',end='\r')
 
@@ -62,7 +66,7 @@ while True:
         time.sleep(1)
         driver.find_element(By.ID, ':r3:').send_keys(netflix_password)
         time.sleep(1)
-        driver.find_element(By.XPATH,'//*[@id="appMountPoint"]/div/div/div[2]/div/form/button').click()
+        driver.find_element(By.XPATH,'//*[@id="appMountPoint"]/div/div/div/div/div[2]/div/form/div/div/div/div/div/div/div/div[1]/div/div/div[3]/div/div/div[2]/button').click()
         time.sleep(1)
         print(f'Richiesta ricevuta... {datetime.now().ctime()}',end='\r')
         accept(url)
