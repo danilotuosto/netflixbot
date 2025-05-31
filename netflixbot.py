@@ -36,7 +36,7 @@ def accept(url):
     try:
         driver.get(url)
         time.sleep(2)
-        driver.find_element(By.XPATH,'//*[@id="appMountPoint"]/div/div/div/div[2]/div/div/div/div[4]/button').click()
+        driver.find_element(By.XPATH,'//*[@id="appMountPoint"]/div/div/div/div/div[2]/div/div/div/div[4]/button').click()
         pass
     except:
         pass
