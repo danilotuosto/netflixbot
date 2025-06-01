@@ -1,4 +1,4 @@
-imap-tools==0.59.0
+imap-tools
 beautifulsoup4==4.13.0
 pytz==2023.3
 selenium==4.21.0
